@@ -49,7 +49,6 @@ function downloadImageByURL(url, filePath) {
     .on('error', function (err) {
       throw err;
     })
-
     .pipe(fs.createWriteStream(filePath));
 }
 
