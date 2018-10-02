@@ -2,6 +2,9 @@ var request = require('request');
 var token = require('./secrets')
 var fs = require('fs');
 
+var repoOwnerInput = process.argv[2];
+var repoNameInput = process.argv[3];
+
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 function getRepoContributors(repoOwner, repoName, cb) {
@@ -22,7 +25,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 
 
-getRepoContributors('jquery', 'jquery', function (err, result) {
+getRepoContributors(repoOwnerInput, repoNameInput, function (err, result) {
   console.log('Errors:', err);
   console.log('Result:', result.forEach( function (elem) {
     var path = './avatars/' + elem.login + '.jpg';
